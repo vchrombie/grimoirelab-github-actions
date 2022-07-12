@@ -21,6 +21,32 @@ steps:
 ```
 
 
+## tests
+
+Tests a Python package against the test suite.
+
+The package should be already built, you can use `grimoirelab-github-actions/build`.
+
+
+See [tests/action.yml](tests/action.yml)
+
+### Inputs
+- `artifact-name`: artifact name from previous jobs (default: artifact).
+- `artifact-path`: directory that contains the package to publish (default: dist).
+- `python-version`: python version of the matrix job (required).
+
+
+### Usage
+```yaml
+steps:
+  - uses: chaoss/grimoirelab-github-actions/tests@master
+    with:
+      artifact-name: grimoire-dist
+      artifact-path: dist
+      python-version: ${{ matrix.python-version }}
+```
+
+
 ## release
 
 Create a new GitHub release for the repository. 
